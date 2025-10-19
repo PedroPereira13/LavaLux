@@ -1,0 +1,803 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+:root {
+    --roxo-lavalux: #6A0DAD;
+    --roxo-suave: #9370DB;
+    --roxo-claro: #E6E6FA;
+    --branco: #FFFFFF;
+    --cinza-claro: #F8F9FA;
+    --cinza-medio: #6C757D;
+    --cinza-escuro: #343A40;
+}
+
+.text-purple {
+    color: var(--roxo-lavalux) !important;
+}
+
+.bg-purple {
+    background-color: var(--roxo-lavalux) !important;
+}
+
+.btn-purple {
+    background-color: var(--roxo-lavalux);
+    border-color: var(--roxo-lavalux);
+    color: white;
+}
+
+.btn-purple:hover {
+    background-color: var(--roxo-lavalux);
+    border-color: var(--roxo-suave);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.navbar-container {
+    padding: 20px 0;
+}
+
+.barranav {
+    padding: 1rem;
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.largura {
+    width: 500px;
+}
+
+.pesquisa {
+    position: relative;
+}
+
+.campo-de-pesquisa {
+    padding: 10px 50px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.campo-de-pesquisa:focus {
+    border-color: var(--roxo-lavalux);
+    box-shadow: 0 0 0 0.2rem rgba(106, 13, 173, 0.1);
+}
+
+.bi-search {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.navlink {
+    color: #000; 
+    font-weight: 500;
+    text-decoration: none;
+    padding: 20px;
+    transition: color 0.3s ease;
+}
+
+.navlink:hover {
+    color: var(--roxo-lavalux);
+}
+
+.cta-link {
+    color: white;
+    background-color: var(--roxo-lavalux);
+    border-radius: 10px;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 1px solid var(--roxo-lavalux);
+}
+
+.cta-link:hover {
+    color: var(--roxo-lavalux);
+    background-color: white;
+    border: 1px solid var(--roxo-suave);
+    transform: translateY(-2px);
+}
+
+.Barranavb {
+    background: var(--branco);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+}
+.Barranavb .nav-link {
+    transition: all 0.3s ease;
+}
+
+.Barranavb .nav-link:hover {
+    background-color: var(--roxo-claro);
+    transform: translateY(-2px);
+}
+
+.dropdown-toggle {
+    border: none;
+    background: transparent;
+    color: #000;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    color: var(--roxo-suave);
+}
+
+.dropdown-menu {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--roxo-suave);
+    color: white;
+}
+
+.footer {
+    background: var(--roxo-lavalux);
+    color: white;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-brand {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 0.5rem;
+}
+
+.footer-brand img {
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.footer-brand img:hover {
+    transform: scale(1.05);
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.footer-social .btn {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.footer-social .btn:hover {
+    background-color: var(--roxo-suave);
+    border-color: var(--roxo-suave);
+    transform: translateY(-2px);
+}
+
+.footer h5 {
+    color: #fff;
+    font-weight: bold;
+}
+
+.footer a {
+    transition: color 0.3s ease;
+    
+}
+
+.footer a:hover {
+    color: var(--roxo-suave) !important;
+}
+
+.bg-gradient-purple {
+    background: linear-gradient(135deg, var(--roxo-lavalux) 0%, #8A2BE2 50%, #9370DB 100%);
+}
+
+.assinatura-promo {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.assinatura-promo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(106, 13, 173, 0.3);
+}
+
+.subscription-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.badge.bg-white {
+    box-shadow: 0 2px 8px rgba(93, 0, 228, 0.15);
+}
+
+.card {
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(93, 0, 228, 0.15) !important;
+    border-color: var(--roxo-lavalux);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.produtos {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.produto-imagem {
+    height: calc(100% - 5rem);
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.produto-imagem:hover {
+    transform: scale(1.05);
+}
+
+.item {
+    text-align: center;
+    width: 15rem;
+    padding: 1rem;
+}
+
+.preco {
+    font-family: 'Open Sans';
+    font-weight: 800;
+    color: var(--roxo-lavalux);
+}
+
+.assinaturaOff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    background: var(--roxo-lavalux);
+    height: 4rem;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.assinaturaOff:hover {
+    background: var(--roxo-suave);
+    color: white;
+    text-decoration: none;
+}
+
+.assinaturaOff span {
+    margin-left: 3px;
+    text-decoration: underline;
+}
+
+.btn-lavalux {
+    --bs-btn-color: var(--roxo-lavalux);
+    --bs-btn-border-color: var(--roxo-lavalux);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--roxo-lavalux);
+    --bs-btn-hover-border-color: var(--roxo-lavalux);
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2.5rem 1.5rem;
+    flex-wrap: wrap;
+    padding: 1rem 0px;
+}
+
+.flex-dentro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0rem;
+    height: auto;
+    width: 48%;
+    transition: all 0.3s ease;
+    border-radius: 1rem;
+}
+
+.flex-dentro:hover {
+    background-color: rgba(106, 13, 173, 0.05);
+    transform: translateY(-3px);
+}
+
+.h1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    background: #f5f5f5;
+    border-radius: 2.5rem;
+    margin: 0rem 1rem 0rem 0rem;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 116%;
+}
+
+#Titulolol {
+    text-align: center;
+    color: var(--roxo-lavalux);
+}
+
+.vantagens {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.vantagensIndividuais {
+    background-color: rgba(106, 13, 173, 0.08);
+    padding: 30px;
+    max-width: 300px;
+    border-radius: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.vantagensIndividuais:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(106, 13, 173, 0.15);
+}
+
+.assinaturaLavalux {
+    padding-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.assinaturaLavalux h1 {
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--roxo-lavalux);
+}
+
+.assinaturaLavalux h2 {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #2c3e50;
+}
+
+.assinaturaLavalux h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #747474;
+}
+
+.assinaturaLavalux img {
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.assinaturaLavaluxConteudo {
+    display: flex;
+    align-items: center;
+}
+
+.assinaturaLavaluxConteudo i {
+    font-size: 1rem;
+    color: var(--roxo-lavalux);
+}
+
+/* Adicione estas classes ao seu CSS existente */
+
+.assinaturaLavalux {
+    background: linear-gradient(135deg, var(--roxo-lavalux) 0%, var(--roxo-suave) 100%) !important;
+}
+
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(106, 13, 173, 0.2) !important;
+}
+
+.vantagensIndividuais {
+    background: white;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.vantagensIndividuais:hover {
+    transform: translateY(-5px);
+    border-color: var(--roxo-lavalux);
+    box-shadow: 0 15px 30px rgba(106, 13, 173, 0.1);
+}
+
+.btn-purple {
+    background-color: var(--roxo-lavalux);
+    border-color: var(--roxo-lavalux);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-purple:hover {
+    background-color: var(--roxo-suave);
+    border-color: var(--roxo-suave);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(106, 13, 173, 0.3);
+}
+
+.text-purple {
+    color: var(--roxo-lavalux) !important;
+}
+
+.bg-purple {
+    background-color: var(--roxo-lavalux) !important;
+}
+
+.container-de-login {
+    background: linear-gradient(135deg, #E6E6FA 0%, #FFFFFF 50%, #F8F9FA 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container-de-formulario {
+    border-radius: 25px;
+    padding: 4rem 3rem;
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 550px;
+    border: 2px solid rgba(106, 13, 173, 0.1);
+    box-shadow: 0 20px 40px rgba(106, 13, 173, 0.15) !important;
+}
+
+.btn-primary {
+    background: var(--roxo-lavalux);
+    border-color: var(--roxo-lavalux);
+    transition: all 0.3s ease;
+    font-size: 1.25rem;
+}
+
+.btn-primary:hover {
+    background: #5a00c7;
+    border-color: #5a00c7;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(106, 13, 173, 0.4);
+}
+
+.btn-primary:disabled {
+    background: var(--roxo-lavalux);
+    border-color: var(--roxo-lavalux);
+    opacity: 0.7;
+}
+
+.form-control {
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+}
+
+.form-control:focus {
+    border-color: var(--roxo-lavalux);
+    box-shadow: 0 0 0 0.3rem rgba(106, 13, 173, 0.15);
+    transform: scale(1.02);
+}
+
+.input-group-text {
+    border-radius: 12px 0 0 12px;
+    border: 2px solid #e9ecef;
+    border-right: none;
+    background: #f8f9fa;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+.input-group-lg .form-control,
+.input-group-lg .input-group-text {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.2rem;
+}
+
+.form-check-input {
+    width: 1.3em;
+    height: 1.3em;
+    margin-top: 0.2em;
+}
+
+.form-check-input:checked {
+    background-color: var(--roxo-lavalux);
+    border-color: var(--roxo-lavalux);
+}
+
+.btn-outline-secondary {
+    border: 3px solid #dee2e6;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.btn-outline-secondary:hover {
+    border-color: var(--roxo-lavalux);
+    color: var(--roxo-lavalux);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.2);
+}
+
+.alert {
+    border-radius: 15px;
+    border: none;
+    font-size: 1.1rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.fa-solid {
+    font-size: 2rem;
+}
+
+
+.card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--roxo-lavalux);
+    box-shadow: 0 15px 35px rgba(106, 13, 173, 0.1) !important;
+}
+
+.btn-primary {
+    background-color: var(--roxo-lavalux);
+    border-color: var(--roxo-lavalux);
+}
+
+.btn-primary:hover {
+    background-color: #5a0bb8;
+    border-color: #5a0bb8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.3);
+}
+
+.min-h-400 {
+    min-height: 400px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.btn-outline-purple {
+    color: var(--roxo-lavalux);
+    border-color: var(--roxo-lavalux);
+}
+
+.btn-outline-purple:hover {
+    background-color: var(--roxo-lavalux);
+    color: white;
+}
+
+
+.list-group-item {
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+    transform: translateX(5px);
+    border-left: 4px solid var(--roxo-lavalux);
+}
+
+
+@media (max-width: 768px) {
+    .list-group-item {
+        margin-bottom: 0.5rem;
+        border-radius: 0.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer .row > div {
+        margin-bottom: 2rem;
+    }
+    
+    .footer-brand {
+        text-align: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+
+    .barranav {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .largura {
+        width: 100%;
+        order: 3;
+    }
+    
+    .logo {
+        width: 150px;
+    }
+    
+    .campo-de-pesquisa {
+        padding: 8px 45px;
+    }
+    
+    .cta-link {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .flex-dentro {
+        width: 100%;
+    }
+
+    .container-de-formulario {
+        padding: 3rem 2rem;
+        margin: 1rem;
+        border-radius: 20px;
+    }
+    
+    .container-de-login {
+        padding: 1rem;
+    }
+    
+    .btn-primary {
+        font-size: 1.1rem;
+        height: 60px;
+    }
+
+    .assinatura-promo {
+        padding: 2rem 1.5rem !important;
+        text-align: center;
+    }
+    
+    .assinatura-promo .btn {
+        width: 100%;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        height: 50px;
+    }
+
+    .assinaturaLavalux {
+        padding-top: 2rem;
+        text-align: center;
+    }
+    
+    .assinaturaLavaluxConteudo {
+        justify-content: center;
+    }
+    
+    .vantagensIndividuais {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .footer {
+        padding: 2rem 1rem;
+    }
+
+    .barranav {
+        padding: 0.5rem;
+    }
+    
+    .logo {
+        width: 120px;
+    }
+    
+    .navlink {
+        padding: 10px;
+    }
+
+    .container-de-formulario {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .form-control,
+    .input-group-text {
+        font-size: 1rem;
+        padding: 0.875rem 1.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .assinaturaLavalux {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .container-de-formulario {
+        padding: 2rem;
+        width: 100%;
+    }
+    
+    .vantagensIndividuais {
+        max-width: 100%;
+        padding: 20px;
+    }
+    
+    .assinatura-promo .btn {
+        width: 100%;
+    }
+    
+    .flex-dentro {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .h1 {
+        margin: 0rem 0rem 1rem 0rem;
+    }
+}
