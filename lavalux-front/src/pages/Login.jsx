@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ setUsuario }) {
   const [form, setForm] = useState({ email: "", senha: "" });
   const [msg, setMsg] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -12,7 +13,7 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     setMsg("");
-    
+
     try {
       const res = await fetch("http://localhost/lavalux-api/api/login.php", {
         method: "POST",
@@ -20,7 +21,14 @@ export default function Login() {
         body: JSON.stringify(form)
       });
       const data = await res.json();
-      setMsg(data.message);
+      
+      if (data.success) {
+        setUsuario(data.user);
+        localStorage.setItem("usuario", JSON.stringify(data.user));
+        navigate("/");
+      } else {
+        setMsg(data.message);
+      }
     } catch (error) {
       setMsg("Erro de conexão. Tente novamente.");
     } finally {

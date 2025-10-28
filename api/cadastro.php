@@ -1,27 +1,67 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json");
-require_once("../config.php");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Credentials: true");
+header("Content-Type: application/json; charset=UTF-8");
 
-$data = json_decode(file_get_contents("php://input"), true);
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
-if (!empty($data['nome']) && !empty($data['email']) && !empty($data['senha'])) {
-    $nome = $data['nome'];
-    $email = $data['email'];
-    $senha = password_hash($data['senha'], PASSWORD_DEFAULT);
+require_once("config.php");
 
+try {
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    $nome = $data['nome'] ?? '';
+    $email = $data['email'] ?? '';
+    $senha = $data['senha'] ?? '';
+
+    if (empty($nome) || empty($email) || empty($senha)) {
+        http_response_code(400);
+        echo json_encode(["success" => false, "message" => "Preencha todos os campos."]);
+        exit();
+    }
+
+    // Verifica se o email já existe
+    $check_sql = $conexao->prepare("SELECT id FROM usuarios WHERE email = ?");
+    $check_sql->bind_param("s", $email);
+    $check_sql->execute();
+    $check_res = $check_sql->get_result();
+
+    if ($check_res->num_rows > 0) {
+        http_response_code(409);
+        echo json_encode(["success" => false, "message" => "Este email já está cadastrado."]);
+        exit();
+    }
+
+    // Hash da senha
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+    // Insere o novo usuário
     $sql = $conexao->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
-    $sql->bind_param("sss", $nome, $email, $senha);
+    $sql->bind_param("sss", $nome, $email, $senha_hash);
 
     if ($sql->execute()) {
-        echo json_encode(["message" => "Cadastro realizado com sucesso!"]);
+        echo json_encode([
+            "success" => true, 
+            "message" => "Cadastro realizado com sucesso!",
+            "user" => [
+                "id" => $sql->insert_id,
+                "nome" => $nome,
+                "email" => $email
+            ]
+        ]);
     } else {
-        echo json_encode(["message" => "Erro ao cadastrar."]);
+        throw new Exception("Erro ao executar a query");
     }
-} else {
-    echo json_encode(["message" => "Preencha todos os campos."]);
+    
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(["success" => false, "message" => "Erro ao cadastrar: " . $e->getMessage()]);
 }
+
+$conexao->close();
 ?>

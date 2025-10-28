@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Cadastro() {
+export default function Cadastro({ setUsuario }) {
   const [form, setForm] = useState({ nome: "", email: "", senha: "" });
   const [msg, setMsg] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = e =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -21,7 +22,14 @@ export default function Cadastro() {
         body: JSON.stringify(form),
       });
       const data = await res.json();
-      setMsg(data.message);
+      
+      if (data.success) {
+        setUsuario(data.user);
+        localStorage.setItem("usuario", JSON.stringify(data.user));
+        navigate("/");
+      } else {
+        setMsg(data.message);
+      }
     } catch (error) {
       setMsg("Erro de conexão. Tente novamente.");
     } finally {
